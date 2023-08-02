@@ -7,12 +7,9 @@ namespace App.Configurations
     {
         public static void ConfigureServices(this IServiceCollection services)
         {
-            // ... (otros servicios)
-
-            // Agregar Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Nombre de tu API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Names API", Version = "v1" });
             });
         }
     }

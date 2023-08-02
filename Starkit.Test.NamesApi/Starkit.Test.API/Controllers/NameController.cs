@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace App.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class NameController : ControllerBase
     {
         public NameController() { }
 
-        [HttpGet]
-        [ProducesResponseType(200)] // Indica que devuelve una respuesta HTTP 200 exitosa
+        [HttpGet("names")]
+        [ProducesResponseType(200)]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "valor1", "valor2" };
