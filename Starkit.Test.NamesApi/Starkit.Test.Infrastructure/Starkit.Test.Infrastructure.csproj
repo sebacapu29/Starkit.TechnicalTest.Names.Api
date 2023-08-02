@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Starkit.Test.Application\Starkit.Test.Application.csproj" />
+  </ItemGroup>
+
 </Project>
