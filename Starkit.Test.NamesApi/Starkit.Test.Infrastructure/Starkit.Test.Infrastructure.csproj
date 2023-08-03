@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Starkit.Test.Application\Starkit.Test.Application.csproj" />
+    <ProjectReference Include="..\Starkit.Test.Domain\Starkit.Test.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

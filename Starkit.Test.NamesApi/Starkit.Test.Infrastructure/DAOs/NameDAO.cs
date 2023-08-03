@@ -1,25 +1,26 @@
 ﻿using Starkit.Test.Application.DTOs.Responses;
 using Starkit.Test.Application.Gateways;
+using Starkit.Test.Domain;
 using Starkit.Test.Infrastructure.Context;
 
 namespace Starkit.Test.Infrastructure.DAOs
 {
     public class NameDAO : INameGateway
     {
-        public NameContext Context { get; set; }
+        public readonly NameContext Context;
 
         public NameDAO()
         {
             Context = new NameContext();
         }
-        public Task<IEnumerable<NameResponse>> Get()
+        public Task<IEnumerable<NameEntity>> GetContext()
         {
             if (Context.NameModels != null)
             {
-                var lista = new List<NameResponse>();
+                var lista = new List<NameEntity>();
                 foreach (var item in Context.NameModels)
                 {
-                    lista.Add(new NameResponse { Name = item.name, Gender = item.gender});
+                    lista.Add(new NameEntity { Name = item.name, Gender = item.gender});
                 }
                 return Task.FromResult(lista.Select(x=>x));
             }

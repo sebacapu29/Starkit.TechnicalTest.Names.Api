@@ -1,9 +1,9 @@
-﻿using Starkit.Test.Application.DTOs.Responses;
+﻿using Starkit.Test.Domain;
 
 namespace Starkit.Test.Application.Gateways
 {
     public interface INameGateway
     {
-        public Task<IEnumerable<NameResponse>> Get();
+        public Task<IEnumerable<NameEntity>> GetContext();
     }
 }
