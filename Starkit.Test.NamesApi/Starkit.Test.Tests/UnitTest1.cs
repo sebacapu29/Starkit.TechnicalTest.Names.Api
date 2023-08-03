@@ -8,7 +8,7 @@ namespace Starkit.Test.Tests
         }
 
         [Test]
-        public void Test1()
+        public void Names_Should_Return_Filtered_List()
         {
             Assert.Pass();
         }

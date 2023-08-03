@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Starkit.Test.Application.DTOs.Requests;
 using Starkit.Test.Application.Interfaces;
+using Starkit.Test.Application;
 
 namespace App.Controllers
 {
@@ -17,8 +18,9 @@ namespace App.Controllers
 
         [HttpPost("names")]
         [ProducesResponseType(200)]
-        public async Task<IActionResult> Get(NameRequest nameRequest)
+        public async Task<IActionResult> Post(NameRequest nameRequest)
         {
+            Logger.LogInfo("Getting Names..");
             var respuesta = await _nameService.GetNames(nameRequest);
             return Ok(respuesta);
         }

@@ -1,4 +1,5 @@
-﻿using Starkit.Test.Application.DTOs.Responses;
+﻿using Starkit.Test.Application;
+using Starkit.Test.Application.DTOs.Responses;
 using Starkit.Test.Application.Gateways;
 using Starkit.Test.Domain;
 using Starkit.Test.Infrastructure.Context;
@@ -24,7 +25,8 @@ namespace Starkit.Test.Infrastructure.DAOs
                 }
                 return Task.FromResult(lista.Select(x=>x));
             }
-            throw new HttpRequestException("Se produjo un error con la fuente de datos");
+            Logger.LogError("An error occur when trying to connect to datasource");
+            throw new HttpRequestException("An error occur when trying to connect to datasource");
         }
     }
 }

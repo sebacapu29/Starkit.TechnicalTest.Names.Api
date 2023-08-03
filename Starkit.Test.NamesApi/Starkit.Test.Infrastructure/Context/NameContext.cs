@@ -3,6 +3,7 @@ using System.Text.Json;
 using System;
 using System.Reflection;
 using Newtonsoft.Json;
+using Starkit.Test.Application;
 
 namespace Starkit.Test.Infrastructure.Context
 {
@@ -19,12 +20,12 @@ namespace Starkit.Test.Infrastructure.Context
                 var names = JsonConvert.DeserializeObject<Response>(text);
                 if (names != null)
                 {
-                    NameModels = (IEnumerable<NameModel>?)names.response;
+                    NameModels = names.response;
                 }
             }
             catch (Exception)
             {
-
+                Logger.LogError("Error al establecer la conexion con la fuente de datos");
                 throw;
             }
 
