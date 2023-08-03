@@ -4,6 +4,6 @@ namespace Starkit.Test.Application.Gateways
 {
     public interface INameGateway
     {
-        public Task<NameResponseDTO> Get();
+        public Task<IEnumerable<NameResponse>> Get();
     }
 }

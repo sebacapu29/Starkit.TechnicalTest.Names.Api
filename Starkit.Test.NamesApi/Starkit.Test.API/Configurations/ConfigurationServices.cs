@@ -1,5 +1,8 @@
 ﻿using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
+using Starkit.Test.Application.Gateways;
+using Starkit.Test.Application.Interfaces;
+using Starkit.Test.Application.Services;
+using Starkit.Test.Infrastructure.DAOs;
 
 namespace App.Configurations
 {
@@ -11,6 +14,9 @@ namespace App.Configurations
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Names API", Version = "v1" });
             });
+
+            services.AddTransient<INameService, NameService>();
+            services.AddTransient<INameGateway, NameDAO>();
         }
     }
 }

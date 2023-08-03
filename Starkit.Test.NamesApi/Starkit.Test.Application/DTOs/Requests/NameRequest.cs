@@ -1,6 +1,6 @@
-﻿namespace Starkit.Test.Application.DTOs.Responses
+﻿namespace Starkit.Test.Application.DTOs.Requests
 {
-    public class NameResponseDTO
+    public class NameRequest
     {
         public char? Gender { get; set; }
         public string? Name { get; set; }

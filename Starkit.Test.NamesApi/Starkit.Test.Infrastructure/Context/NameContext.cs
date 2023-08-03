@@ -1,6 +1,8 @@
 ﻿using Starkit.Test.Infrastructure.Models;
 using System.Text.Json;
 using System;
+using System.Reflection;
+using Newtonsoft.Json;
 
 namespace Starkit.Test.Infrastructure.Context
 {
@@ -9,8 +11,23 @@ namespace Starkit.Test.Infrastructure.Context
         public IEnumerable<NameModel>? NameModels { get; set; }
 
         public NameContext() {
-            string text = File.ReadAllText(@"./names.json");
-            var names = JsonSerializer.Deserialize<NameModel>(text);
+
+            try
+            {
+                string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Context\names.json");
+                string text = File.ReadAllText(path);
+                var names = JsonConvert.DeserializeObject<Response>(text);
+                if (names != null)
+                {
+                    NameModels = (IEnumerable<NameModel>?)names.response;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

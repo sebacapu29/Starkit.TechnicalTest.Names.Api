@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Starkit.Test.Application.DTOs.Requests;
+using Starkit.Test.Application.Interfaces;
 
 namespace App.Controllers
 {
@@ -7,13 +9,18 @@ namespace App.Controllers
     [ApiController]
     public class NameController : ControllerBase
     {
-        public NameController() { }
+        public INameService _nameService;
+        public NameController(INameService nameService) 
+        {   
+            _nameService = nameService;
+        }
 
-        [HttpGet("names")]
+        [HttpPost("names")]
         [ProducesResponseType(200)]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IActionResult> Get(NameRequest nameRequest)
         {
-            return new string[] { "valor1", "valor2" };
+            var respuesta = await _nameService.GetNames(nameRequest);
+            return Ok(respuesta);
         }
     }
 }
