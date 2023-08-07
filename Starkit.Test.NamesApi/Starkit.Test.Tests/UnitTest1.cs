@@ -1,11 +1,7 @@
-using App.Controllers;
 using Moq;
 using Starkit.Test.Application.DTOs.Requests;
-using Starkit.Test.Application.DTOs.Responses;
 using Starkit.Test.Application.Gateways;
-using Starkit.Test.Application.Interfaces;
 using Starkit.Test.Application.Services;
-using Starkit.Test.Application.ServicesMock;
 using Starkit.Test.Domain;
 
 namespace Starkit.Test.Tests
