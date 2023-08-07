@@ -17,7 +17,7 @@ namespace App.Configurations
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Names API", Version = "v1" });
             });
 
-            services.AddTransient<INameService, NameService>();
+            services.AddTransient<INameService, NameService>();   
             services.AddTransient<INameGateway, NameDAO>();
 
             Logger.ConfigureLog();

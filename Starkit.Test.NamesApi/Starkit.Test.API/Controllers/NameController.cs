@@ -18,7 +18,7 @@ namespace App.Controllers
 
         [HttpPost("names")]
         [ProducesResponseType(200)]
-        public async Task<IActionResult> Post(NameRequest nameRequest)
+        public async Task<IActionResult> GetNames(NameRequest nameRequest)
         {
             Logger.LogInfo("Getting Names..");
             var respuesta = await _nameService.GetNames(nameRequest);
